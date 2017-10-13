@@ -35,7 +35,7 @@ public class Deck {
 	
 	public void printCards(){
 		for (int x = 0; x < deck.size(); x++) {
-			System.out.println(deck.get(x).getRank() + " of " + hand.get(x).getSuit());
+			System.out.println(deck.get(x).getRank() + " of " + deck.get(x).getSuit());
 		}
 	}
 	
