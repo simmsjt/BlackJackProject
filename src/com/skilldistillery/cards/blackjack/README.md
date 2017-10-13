@@ -5,3 +5,5 @@
 *OO Design
 
 Run in console, enter your name and intial stake.
+
+im going to revert this
