@@ -4,7 +4,7 @@ public class Card {
 	private Rank rank;
 	private Suit suit;
 	
-	public void Card(Rank r, Suit s) {
+	public  Card(Rank r, Suit s) {
 		this.rank = r;
 		this.suit = s;
 	}
