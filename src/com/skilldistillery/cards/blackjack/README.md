@@ -6,3 +6,6 @@
 
 Run in console, enter your name and intial stake.
 
+
+
+this a test
