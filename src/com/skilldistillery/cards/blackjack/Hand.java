@@ -9,6 +9,10 @@ public class Hand {
 	public Hand(ArrayList<Card> hand) {
 		this.hand = hand;
 	}
+	
+	public Hand() {
+		hand = new ArrayList<Card>();
+	}
 
 	public List<Card> getHand() {
 		return hand;
@@ -21,12 +25,6 @@ public class Hand {
 	public void clearHand() {
 		hand.clear();
 	}
-
-	public void printHand() {
-		for (int x = 0; x < hand.size(); x++) {
-			System.out.println(hand.get(x).getRank() + " of " + hand.get(x).getSuit());
-		}
-	}
 	
 	public int getValue() {
 		int totalValue = 0;
@@ -34,6 +32,12 @@ public class Hand {
 			totalValue += hand.get(0).getRank().getValue();
 		}
 		return totalValue;	
+	}
+	
+	public void printHand() {
+		for(int i= 0; i < hand.size(); i++) {
+			System.out.print(hand.get(i));
+		}
 	}
 
 }
