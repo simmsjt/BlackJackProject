@@ -30,6 +30,13 @@ public class Player {
 		setTotalMoney(0);
 	}
 	
+	public int getHandValue() {
+		return hand.getValue();
+	}
+	
+	public void addToHand(Card c) {
+		hand.addCard(c);
+	}
 	
 
 	public Hand getHand() {

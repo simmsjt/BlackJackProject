@@ -1,25 +1,33 @@
 package com.skilldistillery.cards.blackjack;
 
+import java.util.Scanner;
+
 public class BlackJack {
 	
-	public static Dealer dealer = new Dealer();
-	public static Player player = new Player(new Hand(), "Jake");
+	public Dealer dealer = new Dealer();
+	public Player player = new Player(new Hand(), "Jake");
+	public Scanner sc = new Scanner(System.in);
 	
 	public void start (){
-		playBlackJack();
-		System.out.println("");
+		turn();
 	}
 	
-	public static void playBlackJack() {
+	public void turn() {
+		//start of turn_________________________
 		boolean hit = false;
-		player.getHand().addCard(new Card(Rank.KING,Suit.CLUBS));
-		player.getHand().addCard(dealer.getDeck().drawCard());
-		dealer.getHand().addCard(dealer.getDeck().drawCard());
-		dealer.getHand().addCard(dealer.getDeck().drawCard());
-		System.out.println("You have:  ");
+		player.addToHand(dealer.drawCard());
+		player.addToHand(dealer.drawCard());
+		dealer.addToHand(dealer.drawCard());
+		dealer.addToHand(dealer.drawCard());
+		System.out.print("The dealer has a:  ");
+		dealer.printFirstCard();
+		System.out.print("\nYou have ");
 		player.getHand().printHand();
-//		System.out.println("You have ");
-//		dealer.getHand().printHand();
+		if(player.getHandValue() == 21) {
+			System.out.println("BLACKJACK");
+		}
+		//_____________________________________
 		
+				
 	}
 }

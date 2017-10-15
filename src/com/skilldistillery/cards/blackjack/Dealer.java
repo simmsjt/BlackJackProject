@@ -30,6 +30,22 @@ public class Dealer {
 		this.hand = hand;
 	}
 	
+	public void addToHand(Card c) {
+		hand.addCard(c);
+	}
+	
+	public void printFirstCard() {
+		System.out.print(hand.getHand().get(0));
+	}
+	
+	public int handValue() {
+		return hand.getValue();
+	}
+	
+	public Card drawCard() {
+		return deck.drawCard();
+	
+	}
 	public void addHand(Card c) {
 		hand.addCard(c);
 	}

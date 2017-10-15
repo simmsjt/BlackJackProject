@@ -36,7 +36,7 @@ public class Hand {
 	
 	public void printHand() {
 		for(int i= 0; i < hand.size(); i++) {
-			System.out.print(hand.get(i));
+			System.out.print(hand.get(i) + " ");
 		}
 	}
 
