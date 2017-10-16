@@ -10,8 +10,17 @@ public class BlackJack {
 
 	public void start() {
 		player.setTotalMoney(100);
-		newTurn();
-		turn();
+		String input = "y";
+
+		while (input.charAt(0) != 'n') {
+			newTurn();
+			turn();
+			System.out.print("\nPlay Again? y/n: ");
+			input = sc.nextLine().toLowerCase();
+			System.out.println();
+		}
+		
+		System.out.println("\nLater gator! :)");
 	}
 
 	public void newTurn() {
