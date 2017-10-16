@@ -35,8 +35,6 @@ public class BlackJack {
 		System.out.print("\nYou have ");
 		player.getHand().printHand();
 		hitOrStand();
-			
-
 		}
 	
 
@@ -57,6 +55,13 @@ public class BlackJack {
 				hitOrStand();
 			} else {
 				System.out.println("Player Stands");
+				System.out.print("\nYou have: ");
+				player.getHand().printHand();
+				System.out.print(" : " + player.getHandValue());
+				System.out.print("\nThe dealer has: " + dealer.handValue());
+				dealer.getHand().printHand();
+				
+				
 			}
 		}
 	}
