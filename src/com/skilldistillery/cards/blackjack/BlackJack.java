@@ -11,10 +11,6 @@ public class BlackJack {
 	public void start() {
 		player.setTotalMoney(100);
 		newTurn();
-		player.addToHand(dealer.drawCard());
-		player.addToHand(dealer.drawCard());
-		dealer.addToHand(dealer.drawCard());
-		dealer.addToHand(dealer.drawCard());
 		turn();
 	}
 
@@ -23,20 +19,24 @@ public class BlackJack {
 		player.clearHand();
 		if (dealer.getDeck().getNumberOfCards() < 13) {
 			dealer.newDeck();
+			System.out.println("Dealer changed to a new deck");
 		}
+		player.addToHand(dealer.drawCard());
+		player.addToHand(dealer.drawCard());
+		dealer.addToHand(dealer.drawCard());
+		dealer.addToHand(dealer.drawCard());
 	}
 
 	public void turn() {
 		// start of turn_________________________
 		boolean hit = false;
 
-		System.out.print("The dealer has a:  ");
+		System.out.print("The dealer has a: ");
 		dealer.printFirstCard();
 		System.out.print("\nYou have ");
 		player.getHand().printHand();
 		hitOrStand();
-		}
-	
+	}
 
 	public void hitOrStand() {
 		String input;
@@ -58,12 +58,35 @@ public class BlackJack {
 				System.out.print("\nYou have: ");
 				player.getHand().printHand();
 				System.out.print(" : " + player.getHandValue());
-				System.out.print("\nThe dealer has: " + dealer.handValue());
+				dealersTurn();
+				System.out.print("\nThe dealer has: ");
 				dealer.getHand().printHand();
-				
-				
+				System.out.print(" : " + dealer.handValue());
+				if (dealer.handValue() > 21) {
+					System.out.println("\nOh the dealer busted you win! Damn you're good");
+				} else if (dealer.handValue() < player.getHandValue()) {
+					System.out.println("Oh you kicked that AI's virtual butt!!! Way to go!");
+				} else if (dealer.handValue() > player.getHandValue()) {
+					System.out.println("The dealer beat you. This must be a huge disapointment.");
+				} else if (dealer.handValue() == player.getHandValue()) {
+					System.out.println("It's a push dude...");
+				}
+
 			}
 		}
+	}
+
+	public boolean dealersTurn() {
+		// case after stand dealers turn
+
+		if (dealer.handValue() < 16) {
+			// dealer must draw
+			dealer.addHand(dealer.drawCard());
+			dealersTurn();
+		}
+
+		return true;
+
 	}
 
 }
