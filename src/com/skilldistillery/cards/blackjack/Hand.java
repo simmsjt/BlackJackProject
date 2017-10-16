@@ -31,6 +31,14 @@ public class Hand {
 		for (int x = 0; x < hand.size(); x++) {
 			totalValue += hand.get(x).getRank().getValue();
 		}
+		for (int x = 0; x < hand.size(); x++) {
+			if(hand.get(x).getRank() == Rank.ACE && ) {
+				
+			}
+			totalValue += hand.get(x).getRank().getValue();
+		}
+		
+		
 		return totalValue;	
 	}
 	
