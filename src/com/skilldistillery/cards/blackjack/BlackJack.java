@@ -21,7 +21,11 @@ public class BlackJack {
 	public void newTurn() {
 		dealer.clearHand();
 		player.clearHand();
+		if(dealer.getDeck().getNumberOfCards() < 13) {
+			dealer.newDeck();
+		}
 	}
+	
 	public void turn() {
 		// start of turn_________________________
 		boolean hit = false;

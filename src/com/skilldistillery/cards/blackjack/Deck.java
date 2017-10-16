@@ -16,6 +16,9 @@ public class Deck {
 		this.deck = deck;
 	}
 	
+	public int getNumberOfCards() {
+		return deck.size();
+	}
 	
 	private void generateDeck() {
 		deck = new ArrayList<>(52);
