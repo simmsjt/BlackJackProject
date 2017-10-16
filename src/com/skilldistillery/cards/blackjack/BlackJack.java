@@ -17,49 +17,48 @@ public class BlackJack {
 		dealer.addToHand(dealer.drawCard());
 		turn();
 	}
-	
+
 	public void newTurn() {
 		dealer.clearHand();
 		player.clearHand();
-		if(dealer.getDeck().getNumberOfCards() < 13) {
+		if (dealer.getDeck().getNumberOfCards() < 13) {
 			dealer.newDeck();
 		}
 	}
-	
+
 	public void turn() {
 		// start of turn_________________________
 		boolean hit = false;
-		
+
 		System.out.print("The dealer has a:  ");
 		dealer.printFirstCard();
 		System.out.print("\nYou have ");
 		player.getHand().printHand();
-		if (player.getHandValue() == 21) {
-			//condition for blackjack
-			System.out.println("BLACKJACK");
-		} else {
-			if(player.getHand().getValue()<21){
-			//condition for play
-			hitOrStand();
-			} else {
-			//conditon for busting
-				System.out.println("YOU BUSTED FOO!");
-			}
+		hitOrStand();
 			
-			
+
 		}
-	}
+	
 
 	public void hitOrStand() {
 		String input;
-		System.out.println("\nHit? y/n");
-		input = sc.nextLine().toLowerCase();
-		if (input.charAt(0) == 'y') {
-			player.addToHand(dealer.drawCard());
+		if (player.getHandValue() == 21) {
+			// condition for blackjack
+			System.out.println("BLACKJACK YOU WIN!!");
+		} else if (player.getHandValue() > 21) {
+			System.out.println("YOU BUSTED FOO!");
 		} else {
-			System.out.println("Player Stands");
+			System.out.println("\nHit? y/n");
+			input = sc.nextLine().toLowerCase();
+			if (input.charAt(0) == 'y') {
+				player.addToHand(dealer.drawCard());
+				System.out.print("\nYou have ");
+				player.getHand().printHand();
+				hitOrStand();
+			} else {
+				System.out.println("Player Stands");
+			}
 		}
 	}
-
 
 }
