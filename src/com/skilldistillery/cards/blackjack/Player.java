@@ -18,6 +18,9 @@ public class Player {
 		setTotalMoney(0);
 	}
 	
+	public void clearHand() {
+		hand = new Hand();
+	}
 	
 	public Player(Hand hand) {
 		setHand(hand);
