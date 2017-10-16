@@ -44,7 +44,7 @@ public class BlackJack {
 			// condition for blackjack
 			System.out.println("BLACKJACK YOU WIN!!");
 		} else if (player.getHandValue() > 21) {
-			System.out.println("YOU BUSTED FOO!");
+			System.out.println("YOU BUSTED FOO! : " + player.getHandValue());
 		} else {
 			System.out.println("\nHit? y/n");
 			input = sc.nextLine().toLowerCase();
@@ -65,11 +65,11 @@ public class BlackJack {
 				if (dealer.handValue() > 21) {
 					System.out.println("\nOh the dealer busted you win! Damn you're good");
 				} else if (dealer.handValue() < player.getHandValue()) {
-					System.out.println("Oh you kicked that AI's virtual butt!!! Way to go!");
+					System.out.println("\nOh you kicked that AI's virtual butt!!! Way to go!");
 				} else if (dealer.handValue() > player.getHandValue()) {
-					System.out.println("The dealer beat you. This must be a huge disapointment.");
+					System.out.println("\nThe dealer beat you. This must be a huge disapointment.");
 				} else if (dealer.handValue() == player.getHandValue()) {
-					System.out.println("It's a push dude...");
+					System.out.println("\nIt's a push dude...");
 				}
 
 			}
