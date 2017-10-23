@@ -4,9 +4,9 @@ import java.util.Scanner;
 
 public class BlackJack {
 
-	public Dealer dealer = new Dealer();
-	public Player player = new Player(new Hand(), "Jake");
-	public Scanner sc = new Scanner(System.in);
+	private Dealer dealer = new Dealer();
+	private Player player = new Player(new Hand(), "Jake");
+	private Scanner sc = new Scanner(System.in);
 
 	public void start() {
 		player.setTotalMoney(100);
